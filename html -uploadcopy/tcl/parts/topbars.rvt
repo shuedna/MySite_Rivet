@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title><?= $title ?></title>
+   <link rel="stylesheet" href="../../style.css">
+ </head>
+<body>
+  <div class="topbar1"> 
+     <img src=/images/Shueit2.png class="topbarimage"></img>
+  </div>
+  <div class="topbar2">
+  </div>
+  <div class="menubar"> 
+     <b class="menubutton"><a href="#" style="color:white;">Menu</a></b>
+      <div class="menucontent">
+     <?  #Script to generate menu
+     foreach i [glob *.rvt] {
+	set f [ open $i r]
+	#puts $f
+	set fname [ gets $f ]
+	close $f
+	if {[regexp {<!--} $fname] == 1} {
+		set fname [string trim $fname "<!--"]
+		set fname [string trim $fname "-->" ]
+		#puts "<p> $fname </p>"
+		puts "<a class=\"menubuttons\" href=$i>$fname </a>"
+		#puts "<br>"
+	} else { 
+		set $fname $i
+	}
+}	
+?>
+</div>
+</div> 

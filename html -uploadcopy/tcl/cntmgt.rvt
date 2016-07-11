@@ -1,0 +1,68 @@
+<!--Content Management-->
+<!--View, Add & Delete Content -->
+
+<? 
+	set title "Content Page"
+	::rivet::parse parts/checkcookie.rvt
+	::rivet::parse parts/topbars.rvt
+?>
+   <div style="overflow: auto; position: relative; top: 125px; width: 100%; background-color: white; color: black; padding-bottom: 5px; max-width: 990px">
+     <div style="width: 60%; background-color: Grey; color: white; padding: 20px; text-align: center;" >
+       <b> Welcome To The Content Management Page, <? puts $username ?></b>
+     </div>
+       <div style="width: 60%; background-color: LightGrey; color: white; padding: 20px; text-align: center;" >
+	<?
+     foreach i [glob cntMgt/*.rvt] {
+	set f [ open $i r]
+	#puts $f
+	set fname [ gets $f ]
+	close $f
+	if {[regexp {<!--} $fname] == 1} {
+		set fname [string trim $fname "<!--"]
+		set fname [string trim $fname "-->" ]
+		#puts "<p> $fname </p>"
+		puts "<a style= \"color:black; padding: 20px;\" href=$i>$fname </a>"
+		#puts "<br>"
+	} else { 
+		set $fname $i
+	}
+}	?>
+  </div>
+     <div>
+        <table border="1">
+          <tr>
+            <th>File</th> 
+            <th>Discription</th>
+          </tr>
+   <?
+     foreach i [glob ../*.*] {
+	puts "<tr>"
+	puts "<td>$i</td>"
+	set f [ open $i r]
+	#puts $f
+	set fname [ gets $f ]
+	close $f
+	if {[regexp {<!--} $fname] == 1} {
+		set fname [string trim $fname "<!--"]
+		set fname [string trim $fname "-->" ]
+		#puts "<p> $fname </p>"
+		puts "<td><a style= \"color:black; padding: 20px;display:block;\" href=$i>$fname &nbsp;</a><td>"
+		#puts "<br>"
+	} else { 
+		set fname "Link"
+		puts "<td><a style= \"color:black; padding: 20px;display:block;\" href=$i>$fname &nbsp;</a><td>"
+	}
+	puts "</tr>"
+}	?>
+    </table>
+  </div>
+  <div style=>
+  <? 
+  foreach i [glob ../logoimgs/*] {
+	puts "<img src=$i></img>"
+   } ?>
+   </div>
+   </div>
+ </body>
+</html>
+  

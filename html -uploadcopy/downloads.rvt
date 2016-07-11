@@ -1,0 +1,29 @@
+<!-- Downloads -->
+<? #load my top bar -replace html head body tags 
+	set title "ShueIT Downloads"
+	::rivet::parse parts/topbars.rvt
+?>
+  <div class="mainbody">
+   <div class="listbox">
+    <div class="listboxtitle">
+     <b><a class="title" href=downloads/You_Dont_Know_JS_Up_and_Going.epub>You Dont Know JS Up & Going</a></b>
+    </div>
+     <p style="text-align: left; padding: 5px;">Javascript Ebook Wrtten by Kyle Simpson</p>
+   </div>
+   <div class="listbox">
+    <div class="listboxtitle">
+     <b><a class="title" href=downloads/tclkit-sqlite.exe>Tcl Kit Windows with sqlite</a></b>
+    </div>
+     <p style="text-align: left;padding: 5px;">Self Contained TCL\TK windows executable. The Tclkit can be used as a stand alone interpreter or to create self contained Tcl based executables.</p>
+   </div>
+<?
+   if {[::rivet::var_qs exists test] == 1} {
+	puts [::rivet::var_qs get test]
+  } else {
+	puts "No Var" 
+ } 
+?>
+  </div>
+<? #load my bottom replaces closing body and html tages
+	::rivet::parse parts/tail.rvt
+?>

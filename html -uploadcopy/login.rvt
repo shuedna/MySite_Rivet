@@ -1,0 +1,30 @@
+<!-- Login -->
+ <? #load my top bar -replace body tags 
+	set title "ShueIT Login"
+	::rivet::parse parts/topbars.rvt
+?>
+  <div style="overflow: auto; position: relative; top: 125px; width: 100%; background-color: white; color: black; padding-bottom: 5px; max-width: 990px">
+  <div style="border-style: solid; border-color: #4472ca; border-width:2px; float:;width: 500px; background-color: white; color: black;margin-top:20px; margin-left: 80px">
+   <div style="text-align: left; border-style: solid; border-color: #4472ca; border-width:1px;width: 490px; background-color: #4472ca; color: white; margin: 0px;padding: 5px">
+    <b> LOGIN </b>
+    </div>
+   <form action="tcl/login.tcl" method="post">
+    <table style="width: 50%;">
+     <tr>
+      <td style="text-align: right;color: black;">Username:</td>
+      <td style=><input type="text" name="Username"></td>
+     </tr>
+     <tr>
+      <td style="text-align: right;color: black;">Password: </td>
+      <td><input type="password" name="Password"></td>
+     </tr>
+     <tr>
+      <td style="text-align: right;"><input type="submit" name="submit"></td>
+     </tr>
+     </table>
+   </form>
+  </div>
+  </div>
+<? #load my bottom replaces closing body and html tages
+	::rivet::parse parts/tail.rvt
+?>

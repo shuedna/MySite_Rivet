@@ -1,0 +1,47 @@
+<!-- Blog -->
+<? 
+	set title "ShueIT Services - Blog"
+	::rivet::parse parts/topbars.rvt
+?>
+<div class="mainbody">
+<?
+     if {[::rivet::var_qs exists blog] == 1} {
+	if {[file exists [::rivet::var_qs get blog]] == 1} {
+		puts "<div class=\"blog\">"
+		::rivet::parse [::rivet::var_qs get blog] 
+		puts "</div>"
+	} else {
+		::rivet::parse error.rvt
+	}
+     } else { 
+     foreach i [glob cnt_blogs/*.rvt] {
+	set f [ open $i r]
+	#puts $f
+	set fname [ gets $f ]
+	set d [ gets $f ]
+	close $f
+	puts "<div class=\"listbox\">"
+	if {[regexp {<!--} $fname] == 1} {
+		set fname [string trim $fname "<!--"]
+		set fname [string trim $fname "-->" ]
+		puts "<div class=\"listboxtitle\">"
+		puts "<b><a class=\"title\" href=blog.rvt?blog=$i>$fname </a></b>"
+		puts "</div>"
+	} else { 
+		set $fname $i
+	}
+	if {[regexp {<!--} $d] == 1} {
+		set d [string trim $d "<!--"]
+		set d [string trim $d "-->" ]
+		puts "<p style=\"text-align: left;padding: 5px;\">$d</p>"
+
+	} else { 
+	}
+	puts "</div>"
+}
+}
+?>
+  </div>
+<?
+	::rivet::parse parts/tail.rvt
+?>

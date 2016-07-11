@@ -1,0 +1,110 @@
+<!--User Management-->
+<!--View, Add & Delete Users -->
+<!DOCTYPE html>
+<?
+package require sqlite3
+proc checkCookie {} {
+	sqlite db /var/www/html/data/test.db
+	if {[db exists "SELECT 1 FROM users WHERE session=\'[::rivet::cookie get TclRivetCMS]\'"] == 1 } {
+		if {[db eval "SELECT exp FROM users WHERE session=\'[::rivet::cookie get TclRivetCMS]\'"] > [clock seconds] } {
+			global username
+			set username [db eval "SELECT username FROM users WHERE session=\'[::rivet::cookie get TclRivetCMS]\'"]
+			set exp [expr [clock seconds] + 900]
+			db eval "UPDATE users SET exp=$exp WHERE username=\'$username\'"
+			db close
+		} else {
+			db close
+			::rivet::redirect /login.rvt
+		}
+	} else {
+		db close
+		::rivet::redirect /login.rvt
+	}
+}
+
+if {[::rivet::cookie get TclRivetCMS] == "" } { 
+		::rivet::redirect /login.rvt
+	} else {
+		checkCookie
+	}
+?>
+<html>
+ <head>
+  <title> Admin Main </title>
+ </head>
+ <body>
+  <div style="width: 60%; background-color: Grey; color: white; padding: 20px; text-align: center;" >
+   <b> Welcome To The Admin Page, <? puts $username ?></b>
+  </div>
+  <div style="width: 60%; background-color: LightGrey; color: white; padding: 20px; text-align: center;" >
+	<?
+     foreach i [glob *.rvt] {
+	set f [ open $i r]
+	#puts $f
+	set fname [ gets $f ]
+	close $f
+	if {[regexp {<!--} $fname] == 1} {
+		set fname [string trim $fname "<!--"]
+		set fname [string trim $fname "-->" ]
+		#puts "<p> $fname </p>"
+		puts "<a style= \"color:black; padding: 20px;\" href=$i>$fname </a>"
+		#puts "<br>"
+	} else { 
+		set $fname $i
+	}
+}	?>
+  </div>
+  <div>
+      <?
+     foreach i [glob userMgt/*.rvt] {
+	set f [ open $i r]
+	#puts $f
+	set fname [ gets $f ]
+	set d [ gets $f ]
+	close $f
+	if {[regexp {<!--} $fname] == 1} {
+		set fname [string trim $fname "<!--"]
+		set fname [string trim $fname "-->" ]
+		#puts "<p> $fname </p>"
+		puts "<a style= \"color:black; padding: 20px;\" href=$i>$fname </a>"
+		#puts "<br>"
+	} else { 
+		set $fname $i
+	}
+	if {[regexp {<!--} $d] == 1} {
+		set d [string trim $d "<!--"]
+		set d [string trim $d "-->" ]
+		#puts "<p> $fname </p>"
+		puts "<p>$d</p>"
+		#puts "<br>"
+	} else { 
+	}
+}	?>
+  </div>
+  <div style="width: 60%; background-color: white; color: black; padding: 20px; text-align: center;">
+      <?
+        package require sqlite3
+	sqlite db /var/www/html/data/test.db
+	puts "<table border=\"1\" style=\"text-align: center;width: 90%;\" >"
+	puts "<th> User </th>"
+	puts "<th> Email </th>"
+	puts "<th> Last login </th>"
+	foreach u [db eval {SELECT username FROM users }] {
+		puts "<tr>"
+		puts "<td>$u</td>"
+		puts "<td>[db eval "SELECT email FROM users WHERE username=\'$u\'"]</td>"
+		puts "<td>[db eval "SELECT date FROM users WHERE username=\'$u\'"]</td>"
+		puts "</tr>"
+	}
+	puts </table>
+	db close
+      ?>
+  </div>	
+  <div style=>
+  <? foreach i [glob ../logoimgs/*] {
+	puts "<img src=$i></img>"
+   } ?>
+   </div>
+ </body>
+</html>
+  

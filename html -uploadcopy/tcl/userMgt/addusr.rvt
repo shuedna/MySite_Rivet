@@ -1,0 +1,47 @@
+<!--Add New User-->
+<!--Add a New User for CMS-->
+<?
+package require sqlite3
+proc checkCookie {} {
+	sqlite db /var/www/html/data/test.db
+	if {[db exists "SELECT 1 FROM users WHERE session=\'[::rivet::cookie get TclRivetCMS]\'"] == 1 } {
+		if {[db eval "SELECT exp FROM users WHERE session=\'[::rivet::cookie get TclRivetCMS]\'"] > [clock seconds] } {
+			global username
+			set username [db eval "SELECT username FROM users WHERE session=\'[::rivet::cookie get TclRivetCMS]\'"]
+			db close
+		} else {
+			db close
+			::rivet::redirect /login.rvt
+		}
+	} else {
+		db close
+		::rivet::redirect /login.rvt
+	}
+}
+
+if {[::rivet::cookie get TclRivetCMS] == "" } { 
+		::rivet::redirect /login.rvt
+	} else {
+		checkCookie
+	}
+?>
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Add User Form</title>
+ </head>
+ <body>
+  <div style="width: 60%; background-color: Grey; color: white; padding: 20px;" >
+   <form action=addusr.tcl method="post">
+    <b>Add A New User</b><br><br>
+    <b>UserName:</b>
+    <input type="text" name="Username"><br><br>
+    <b>Password:  </b>
+    <input type="password" name="Password"><br><br>
+    <b>Email:       </b>
+    <input type="text" name="Email"><br><br><br>
+    <input type="submit" name="submit">
+   </form>
+  </div>
+ </body>
+</html>

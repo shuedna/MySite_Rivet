@@ -1,0 +1,18 @@
+<!-- Home -->
+<? 
+	set title "ShueIT Services"
+	::rivet::parse parts/topbars.rvt
+?>
+<div class="mainbody">
+    <?
+        foreach cnt [glob cnt_home_div/*.html] {
+            puts "<div class=\"solidbox\">"
+	    ::rivet::parse $cnt
+            puts "</div>"
+        } 
+	#*/
+    ?> 
+  </div>
+<?
+	::rivet::parse parts/tail.rvt
+?>

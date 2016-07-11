@@ -1,0 +1,11 @@
+<div class="taildiv">
+  <p style="text-align: center;"> Site made possible by 		
+   <? 
+	foreach i [glob logoimgs/*] { #*/
+	puts "<img src=$i /img>"	
+   } 
+?>  
+  </p>
+ </div>
+</body>
+</html>

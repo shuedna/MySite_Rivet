@@ -1,0 +1,480 @@
+/* -------- Small Screen Css -----*/
+
+	body {
+	text-align:center;
+	background-color: white;
+	color: #04080f;
+	padding-bottom: 10px; 
+	width: 100%;
+}
+
+.topbar1 {
+	position: fixed; 
+	top: 10px;
+	z-index: 3;
+	background-color: black;
+	height:94px;
+	width: 98%;
+}
+
+.topbarimage {
+	float:;
+	width: 602px;
+	z-index: 3;
+}
+
+.topbar2 {
+	position: fixed;
+	top: 99px; 
+	z-index: 1; 
+	text-align: left; 
+	background-color: white; 
+	color: black; 
+	height:79px;
+	width: 98%;
+}
+
+.menucontent {
+	display: none;
+}
+
+.menubar {
+	display: block; 
+	position: fixed; 
+	top: 160px; 
+	z-index: 4;
+	text-align: left;
+	font-size: 40pt;
+}
+
+.menubutton {
+	text-decoration: none;
+	background-color: #4472ca; 
+	color:white; 
+	padding-left: 20px; 
+	padding-right: 20px; 
+	padding-top: 20px; 
+	padding-bottom:20px; 
+	border-style: solid; 
+	border-color: white; 
+	border-width:1px;
+	font-size: 40pt;
+}
+
+.menubutton:hover + .menucontent {
+	background-color: black;
+	display: block;
+}
+
+.menucontent:hover  {
+	display: block;
+}
+
+.menubuttons {
+	text-decoration: none;
+	display: block; 
+	background-color: #4472ca; 
+	color:white; 
+	padding-left: 20px; 
+	padding-right: 20px; 
+	padding-top: 25px; 
+	padding-bottom:25px; 
+	border-style: solid; 
+	border-color: white; 
+	border-width:10px; 
+}
+
+/* Css for Main body */
+
+.mainbody {
+	overflow: auto; 
+	position: relative; 
+	top: 225px; 
+	background-color: white; 
+	color: black; 
+	padding-bottom: 5px;
+	width: 97%;
+}
+
+.solidbox {
+	border-style: solid; 
+	border-color: white; 
+	border-width:5px; 
+	float:;
+	width: 98%; 
+	background-color: #4472ca; 
+	color: white; 
+	padding: 10px; 
+	margin: 0px;
+     font-size: 30px;
+}
+
+/* Blog css*/
+
+.blog {
+	border-style: solid; 
+	border-color: #4472ca; 
+	border-width:2px; 
+	float:;
+	width: 95%; 
+	background-color: white;
+	color: black;
+	margin-top:20px;
+	margin-left: 20px;
+	padding:10px;
+     font-size: 26pt;
+}
+
+.listbox {
+	border-style: solid; 
+	border-color: #4472ca; 
+	border-width:2px; 
+	float:;
+	width: 80%; 
+	background-color: white; 
+	color: black;
+	margin-top:20px; 
+	margin-left: 80px;
+	font-size: 22pt;
+}
+
+.listboxtitle {
+	text-align: left; 
+	border-style: solid; 
+	border-color: #4472ca; 
+	border-width:1px;
+	width: 80%; 
+	background-color: #4472ca; 
+	color: white; 
+	margin: 0px;
+	padding: 5px;
+	font-size: 30pt;
+}
+
+.title {
+	text-decoration: none;
+	display: inline-block;
+	color:white;  
+	background-color: #4472ca;
+}
+
+/* tail css */
+
+.taildiv {
+	position: relative; 
+	top: 230px;
+	float: left;
+	width: 98%;
+	background-color: white; 
+	color: black; 
+	padding-top: 5px;
+}
+
+/* normal full screeen css for parts/topbars */
+
+@media screen and (resolution: 96dpi) {
+	body {
+	text-align:center;
+	background-color: #4472ca;
+	color: #04080f;
+	padding-bottom: 10px; 
+	width: 100%;
+}
+
+.topbar1 {
+	position: fixed; 
+	top: 10px;
+	z-index: 3;
+	background-color: black;
+	height: 54px;
+	width: 98%;
+}
+
+.topbarimage {
+	float:;
+	width: 348px;
+}
+
+.topbar2 {
+	position: fixed;
+	top: 60px; 
+	z-index: 2; 
+	text-align: left; 
+	background-color: white; 
+	color: black; 
+	height:46px;
+	width: 98%;
+}
+
+.menubar {
+	display:block;
+	position: relative; 
+	top: 100px; 
+	text-align: left;
+	background-color: white; 
+	color: black;
+	width: 98%;
+	font-size: 11pt;
+}
+
+.menubutton {
+	display: none;
+}
+
+.menucontent {
+	display: block;
+}
+
+.menubuttons {
+	text-decoration: none;
+	display: inline-block; 
+	background-color: #4472ca; 
+	color:white; 
+	padding-left: 20px; 
+	padding-right: 20px; 
+	padding-top: 10px; 
+	padding-bottom:10px; 
+	border-style: solid; 
+	border-color: white; 
+	border-width:1px; 
+}
+
+/* Css for Main body */
+
+.mainbody {
+	overflow: auto; 
+	position: relative; 
+	top: 125px; 
+	background-color: white; 
+	color: black; 
+	padding-bottom: 5px;
+	width: 98%;
+}
+
+.solidbox {
+	border-style: solid; 
+	border-color: white; 
+	border-width:5px; 
+	float:left;
+	width: 46%; 
+	background-color: #4472ca; 
+	color: white; 
+	padding: 10px; 
+	margin: 0px;
+     font-size: 11pt;
+}
+
+/* Blog css*/
+
+.blog {
+	border-style: solid; 
+	border-color: #4472ca; 
+	border-width:2px; 
+	float:;
+	width: 700px; 
+	background-color: white;
+	color: black;
+	margin-top:20px;
+	margin-left: 80px;
+	padding:10px;
+     font-size:11pt;
+}
+
+.listbox {
+	border-style: solid; 
+	border-color: #4472ca; 
+	border-width:2px; 
+	float:;width: 500px; 
+	background-color: white; 
+	color: black;
+	margin-top:20px; 
+	margin-left: 80px;
+     font-size: 11pt;
+}
+
+.listboxtitle {
+	"text-align: left; 
+	border-style: solid; 
+	border-color: #4472ca; 
+	border-width:1px;
+	width: 490px; 
+	background-color: #4472ca; 
+	color: white; 
+	margin: 0px;
+	padding: 5px;
+     font-size: 13pt;
+}
+
+.title {
+	text-decoration: none;
+	display: inline-block;
+	color:white;  
+	background-color: #4472ca;
+}
+/* tail css */
+
+.taildiv {
+	position: relative; 
+	top: 130px;
+	float: left;
+	width: 98%;
+	background-color: white; 
+	color: black; 
+	padding-top: 5px;
+}
+}
+
+
+@media screen and (min-width: 990px) {
+body {
+	text-align:center;
+	background-color: #4472ca;
+	color: #04080f;
+	padding-bottom: 10px; 
+	width: 990px;
+}
+
+.topbar1 {
+	position: fixed; 
+	top: 10px;
+	z-index: 3;
+	background-color: black;
+	height: 54px;
+	width: 990px;
+}
+
+.topbarimage {
+	float:;
+	width: 348px;
+}
+
+.topbar2 {
+	position: fixed;
+	top: 60px; 
+	z-index: 2; 
+	text-align: left; 
+	background-color: white; 
+	color: black; 
+	height:46px;
+	width: 990px;
+}
+
+.menubar {
+	display:block;
+	position: relative; 
+	top: 100px; 
+	text-align: left;
+	background-color: white; 
+	color: black;
+	width: 990px;
+	font-size: 11pt;
+}
+
+.menubutton {
+	display: none;
+}
+
+.menucontent {
+	display: block;
+}
+
+.menubuttons {
+	text-decoration: none;
+	display: inline-block; 
+	background-color: #4472ca; 
+	color:white; 
+	padding-left: 20px; 
+	padding-right: 20px; 
+	padding-top: 10px; 
+	padding-bottom:10px; 
+	border-style: solid; 
+	border-color: white; 
+	border-width:1px; 
+}
+
+/* Css for Main body */
+
+.mainbody {
+	overflow: auto; 
+	position: relative; 
+	top: 125px; 
+	background-color: white; 
+	color: black; 
+	padding-bottom: 5px;
+	width: 990px;
+}
+
+.solidbox {
+	border-style: solid; 
+	border-color: white; 
+	border-width:5px; 
+	float:left;
+	width: 300px; 
+	background-color: #4472ca; 
+	color: white; 
+	padding: 10px; 
+	margin: 0px;
+     font-size: 11pt;
+}
+
+/* Blog css*/
+
+.blog {
+	border-style: solid; 
+	border-color: #4472ca; 
+	border-width:2px; 
+	float:;
+	width: 700px; 
+	background-color: white;
+	color: black;
+	margin-top:20px;
+	margin-left: 80px;
+	padding:10px;
+     font-size: 11pt;
+}
+
+.listbox {
+	border-style: solid; 
+	border-color: #4472ca; 
+	border-width:2px; 
+	float:;width: 500px; 
+	background-color: white; 
+	color: black;
+	margin-top:20px; 
+	margin-left: 80px;
+     font-size: 11pt;
+}
+
+.listboxtitle {
+	"text-align: left; 
+	border-style: solid; 
+	border-color: #4472ca; 
+	border-width:1px;
+	width: 490px; 
+	background-color: #4472ca; 
+	color: white; 
+	margin: 0px;
+	padding: 5px;
+     font-size: 13pt;
+}
+
+.title {
+	text-decoration: none;
+	display: inline-block;
+	color:white;  
+	background-color: #4472ca;
+}
+/* tail css */
+
+.taildiv {
+	position: relative; 
+	top: 130px;
+	float: left;
+	width: 100%;
+	background-color: white; 
+	color: black; 
+	padding-top: 5px;
+}
+}
+
+

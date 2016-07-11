@@ -1,0 +1,50 @@
+<!--Add Content-->
+<!--The Admin Tool Home Page-->
+<? 
+	set title "The Admin Tool Home Page"
+	::rivet::parse ../parts/checkcookie.rvt
+	::rivet::parse ../../parts/topbarsWJS.rvt
+?>
+  <div style="overflow: auto; position: relative; top: 125px; width: 100%; background-color: white; color: black; padding: 10px; max-width: 990px">
+   <div style="overflow:scroll; border-style: solid; border-color: #4472ca; border-width:1px; float:left;width: 500px; height: 150px; background-color: white; color: black; padding: 5px; margin: 0px">
+<?
+	puts <b>IMAGES</B>
+	foreach i [glob ../../images/*] { #*/
+	puts "<a style=\"display: block; text-align: left;\" href=$i target=\"_blank\">$i</a>"	
+   } 
+?>
+    </div>
+    <div style="border-style: solid; border-color: #4472ca; border-width:1px; float:left;width: 300px;height: 150px; background-color: white; color: black; padding: 5px; margin: 0px">    
+      <table>
+       <form action="upload.tcl" enctype="multipart/form-data" method="post">
+	 <tr><td><b>Load New Image</b></td></tr>
+         <tr><td><input type="file" name="MyUpload"></input></td></tr>
+         <tr><td><input type="submit" value="Send File"></input></td></tr>
+       </form>
+      </table>
+   </div>
+   <div style="overflow:auto; border-style: solid; border-color: #4472ca; border-width:1px; float:left;width: 900px; background-color: white; color: black; padding: 5px; margin: 0px">
+	<form action="addcnt.tcl" method="post">
+	 <textarea name="cnt">Enter Content</textarea>
+	 <br>
+	 <p>Title:<input type="text" size="100" name="title"></input></p>
+	 <br>
+	 <p>Description:<input type="text" size="100" name="descript"></input></p>
+	 <br>
+          <div style="overflow:scroll; float: left; border-style: solid; border-color: #4472ca; border-width:1px; ;width: 300px;height: 100px; background-color: white; color: black; padding: 5px; margin: 0px">
+     <?
+      puts "<b>Content Folders</b><hr>" 
+      foreach d [glob -type d ../../cnt_*] {
+           puts "<input type=\"radio\" name=\"dirs\" value=\"$d\">$d</input><br>"
+	}
+   ?>
+       </div>
+       <div style="overflow:auto; float: left; border-style: solid; border-color: #4472ca; border-width:1px; ;width: 500px;height: 100px; background-color: white; color: black; padding: 5px; margin: 0px">
+	<p>Filename:<input type="text" name="filename"></input><input type="checkbox" name="date" value="1">Append Date</input></p><hr>
+	<input type="submit" value="Send File"></input>
+	
+   </div>
+  </div>
+ </body>
+</html>   
+

@@ -1,0 +1,46 @@
+<!--Admin Home-->
+<!--The Admin Tool Home Page-->
+<? 
+	set title "The Admin Tool Home Page"
+	::rivet::parse parts/checkcookie.rvt
+	::rivet::parse parts/topbars.rvt
+?>
+ <div style="overflow: auto; position: relative; top: 125px; width: 100%; background-color: white; color: black; padding-bottom: 5px; max-width: 990px">
+  <div style="border-style: solid; border-color: #4472ca; border-width:2px; float:;width: 500px; background-color: white; color: black;margin-top:20px; margin-left: 80px">
+   <div style="text-align: left; border-style: solid; border-color: #4472ca; border-width:1px;width: 500px; background-color: #4472ca; color: white; margin: 0px">
+   <b style= "text-decoration: none;display: inline-block;color:white;  background-color: #4472ca; padding: 5px;"> Welcome To The Admin Page, <? puts $username ?></b>
+   </div>
+  <?
+     foreach i [glob *.rvt] {
+	set f [ open $i r]
+	#puts $f
+	set fname [ gets $f ]
+	set d [ gets $f ]
+	close $f
+	if {[regexp {<!--} $fname] == 1} {
+		set fname [string trim $fname "<!--"]
+		set fname [string trim $fname "-->" ]
+		#puts "<p> $fname </p>"
+		puts "<p><a style= \"color:black; padding: 20px;\" href=$i>$fname </a>"
+		#puts "<br>"
+	} else { 
+		set $fname $i
+	}
+	if {[regexp {<!--} $d] == 1} {
+		set d [string trim $d "<!--"]
+		set d [string trim $d "-->" ]
+		#puts "<p> $fname </p>"
+		puts "$d</p>"
+		#puts "<br>"
+	} else { 
+	}
+}	?>
+  </div>
+  </div>
+<?
+#	::rivet::parse ../parts/tail.rvt
+?>
+</body>
+</html>
+
+  
