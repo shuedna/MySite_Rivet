@@ -14,7 +14,7 @@ it also makes sure the timeout duration has not been reach since the last check 
 
 New users can be added to the database. I have yet to implement any other user management. 
 
-New content can be writen to the cnt_blogs & cnt_home_div folder via TinyMCE editor. 
+New content can be writen to the cnt_blogs & cnt_home_div folder via TinyMCE editor ( the script for TinyMCE has not been included). 
 
 All of this was working well on the site www.shueit.net untill recently after a server reboot the database is now thowing a error that is readonly when login script is run. 
 
