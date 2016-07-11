@@ -12,7 +12,7 @@ Login script uses a sqlite DB for usernames and passwords. a unique hash is crea
 The unique has is saved in a cookie. after login each link then checks to make sure the cookie hash matches the key befor proceeding.
 it also makes sure the timeout duration has not been reach since the last check if matches the time is updated and the new next page is generated.
 
-New users can be added to the database. I have yet to implement any other user management. 
+New users can be added to the database. I have yet to implement any other user management. (the database uploaded has been scrubed of usersnames and passwords.) 
 
 New content can be writen to the cnt_blogs & cnt_home_div folder via TinyMCE editor ( the script for TinyMCE has not been included). 
 
